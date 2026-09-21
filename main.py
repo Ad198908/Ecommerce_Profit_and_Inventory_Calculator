@@ -6,18 +6,50 @@
 
     """
 STORE_INFO = ("Admart", "USD")
+inventory ={
 
-# print("-"*50)
-# print(f"WELCOME TO {STORE_INFO[0]}")
-# print("1. View Inventory")
-# print("2. Update Inventory")
-# print("3. Record Sales")
-# print("4. View profit")
-# print("5. Exit")
-# print("-"*50)
+     "AD-PRODUCT-001" : {
+          "name": "Canvas Wall Art",
+          "category": "Wall Art",
+          "cost":8.40,
+          "price":12.50,
+          "stock_quantity": 100
+     }, 
 
-# choice = input("please enter your choice ")
-# print(choice)
+     "AD-PRODUCT-002":{
+           "name": " Candle",
+            "category": "home appliance",
+            "cost":9.40,
+            "price":16.50,
+            "stock_quantity": 180
+          
+     },
+
+    "AD-PRODUCT-003": {
+       "name": "flower",
+       "category":"kitchin material" ,
+       "cost":30.99,
+       "price": 39.50,
+       "stock_quantity":100
+
+      }
+}  
+
+def viewInventory(inventory):
+    print("Current Inventory")
+     
+    if not inventory:
+        print("The inventory is empty")
+        return
+    else:
+        for key, value in inventory.items():
+            product = value ["name"]
+            category = value["category"]
+            price = value["price"]
+            stock_quantity = value["stock_quantity"]
+            print(f" Name:{product}")
+            print(f"Price: {price}, Catagory: {category}, Stock: {stock_quantity}")
+            print("-"*30)
 
 #state flag
 isRunning = True
@@ -32,22 +64,17 @@ while isRunning:
     print("-"*50)
     userChoice = int(input("Enter your choice 1-5 \n"))
     
-    if (userChoice) == 1:
-         print("STUB View Inventory. Coming Soon\n")
-    elif(userChoice)== 2:
+    if userChoice == 1:
+        viewInventory(inventory)       
+    elif userChoice == 2:
          print("Update Inventory Coming Soon\n")
-    elif(userChoice)== 3:
+    elif userChoice == 3:
          print("Record Sales Coming Soon\n")
-    elif(userChoice)== 4:  
-    
-          print("View Profit Coming Soon\n")
-    
-    elif(userChoice)== 5:
+    elif userChoice == 4:
+          print("View Profit Coming Soon\n") 
+    elif userChoice == 5:
         isRunning = False
-    
     else:
-        print("Please Enter 1-5")
-
-               
+        print("Please Enter 1-5\n")  
     
         
