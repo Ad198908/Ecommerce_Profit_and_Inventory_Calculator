@@ -51,6 +51,32 @@ def viewInventory(inventory):
             print(f"Price: {price}, Catagory: {category}, Stock: {stock_quantity}")
             print("-"*30)
 
+def updeatInventory(inventory):
+    print("---------Update Invontory----------")
+    Id = input("Please enter the product id ")        
+    Id = Id.strip().upper()
+    if (Id in inventory):
+        print("Please change the inventory ID, it already exists.")
+        return
+    else:
+        name= input("Please enter the product name ").strip()
+        price = float(input("Please enter the product price "))
+        cost = float(input("Please enter the product cost "))
+        category = input("Please enter the product category ").strip()
+        stock_quantity = int(input("Please enter the product stock_quantity "))
+
+        inventory[Id] = {
+            "name": name,
+            "price": price,
+            "cost": cost,
+            "category": category,
+            "stock_quantity":stock_quantity
+            }
+
+        print("Product added sucssesfully")
+    
+
+
 #state flag
 isRunning = True
 
@@ -67,7 +93,7 @@ while isRunning:
     if userChoice == 1:
         viewInventory(inventory)       
     elif userChoice == 2:
-         print("Update Inventory Coming Soon\n")
+        updeatInventory(inventory)          
     elif userChoice == 3:
          print("Record Sales Coming Soon\n")
     elif userChoice == 4:
