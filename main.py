@@ -34,7 +34,7 @@ inventory ={
 
       }
 }  
-sales_log = []
+sales_history = []
 
 def viewInventory(inventory):
     print("Current Inventory")
@@ -75,7 +75,44 @@ def updeatInventory(inventory):
             }
 
         print("Product added sucssesfully")
-    
+
+def recordSales(inventory, sales_history):
+
+    print("Record Sales \n")
+    quantity_bought = int(input("How many items are bought?"))
+    if quantity_bought == 0:
+        print("quantity_bought can not be empty")
+        return
+
+    P_id = input("Please enter product Id").strip().upper()
+
+    if not inventory:
+        print("Can not record sales")
+        return
+
+    if P_id not in inventory:
+        print("There is no product with that ID")
+        return
+    else:
+        product = inventory[P_id]
+        stock = product["stock_quantity"]
+        price =  product["price"]
+        cost = product["cost"]
+        print(f"Selected {product["name"]}")
+        if quantity_bought <= stock:
+            stock = stock - quantity_bought
+            reveniue = quantity_bought * price
+            profit = reveniue - (quantity_bought*cost)
+
+            sales_history.append(               
+                {
+            "quantity_bought": quantity_bought,
+            "reveniue": reveniue,
+            "profit": profit
+                }
+            )
+            print("Logged Succcessfully")
+            print(sales_history)
 
 
 #state flag
@@ -96,35 +133,8 @@ while isRunning:
     elif userChoice == 2:
         updeatInventory(inventory)          
     elif userChoice == 3:
-         print("Record Sales \n")
-         quantity_bought = int(input("How many items are bought?"))
-         P_id = input("Please enter product Id")
 
-         if P_id not in inventory:
-             print("There is no product with that ID")
-         else:
-             product = inventory[P_id]
-             stock = product["stock_quantity"]
-             price =  product["price"]
-             cost = product["cost"]
-             print(f"Selected {product["name"]}")
-             if quantity_bought <= stock:
-                 stock = stock - quantity_bought
-                 reveniue = quantity_bought * price
-                 profit = reveniue - (quantity_bought*cost)
-
-                 sales_log.append(               
-                     {
-                    "quantity_bought": quantity_bought,
-                    "reveniue": reveniue,
-                    "profit": profit
-                     }
-                 )
-                 print("Logged Succcessfully")
-                 print(sales_log)
-
-              
-
+       recordSales(inventory , sales_history)          
     elif userChoice == 4:
           print("View Profit Coming Soon\n") 
     elif userChoice == 5:
