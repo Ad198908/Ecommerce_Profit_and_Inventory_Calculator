@@ -34,6 +34,7 @@ inventory ={
 
       }
 }  
+sales_log = []
 
 def viewInventory(inventory):
     print("Current Inventory")
@@ -95,7 +96,35 @@ while isRunning:
     elif userChoice == 2:
         updeatInventory(inventory)          
     elif userChoice == 3:
-         print("Record Sales Coming Soon\n")
+         print("Record Sales \n")
+         quantity_bought = int(input("How many items are bought?"))
+         P_id = input("Please enter product Id")
+
+         if P_id not in inventory:
+             print("There is no product with that ID")
+         else:
+             product = inventory[P_id]
+             stock = product["stock_quantity"]
+             price =  product["price"]
+             cost = product["cost"]
+             print(f"Selected {product["name"]}")
+             if quantity_bought <= stock:
+                 stock = stock - quantity_bought
+                 reveniue = quantity_bought * price
+                 profit = reveniue - (quantity_bought*cost)
+
+                 sales_log.append(               
+                     {
+                    "quantity_bought": quantity_bought,
+                    "reveniue": reveniue,
+                    "profit": profit
+                     }
+                 )
+                 print("Logged Succcessfully")
+                 print(sales_log)
+
+              
+
     elif userChoice == 4:
           print("View Profit Coming Soon\n") 
     elif userChoice == 5:
