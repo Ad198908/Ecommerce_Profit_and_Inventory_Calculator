@@ -37,6 +37,11 @@ inventory ={
 sales_history = []
 
 def viewInventory(inventory):
+    """This function lets the store owner view the inventory
+
+    Args:
+        inventory (dictionary): Product inventory
+    """
     print("Current Inventory")
      
     if not inventory:
@@ -79,15 +84,15 @@ def updeatInventory(inventory):
 def recordSales(inventory, sales_history):
 
     print("Record Sales \n")
-    quantity_bought = int(input("How many items are bought?"))
+    quantity_bought = int(input("How many items are bought? "))
     if quantity_bought == 0:
-        print("quantity_bought can not be empty")
+        print("quantity_bought can not be empty ")
         return
 
-    P_id = input("Please enter product Id").strip().upper()
+    P_id = input("Please enter product Id ").strip().upper()
 
     if not inventory:
-        print("Can not record sales")
+        print("Can not record sales ")
         return
 
     if P_id not in inventory:
@@ -101,19 +106,40 @@ def recordSales(inventory, sales_history):
         print(f"Selected {product["name"]}")
         if quantity_bought <= stock:
             stock = stock - quantity_bought
-            reveniue = quantity_bought * price
-            profit = reveniue - (quantity_bought*cost)
+            revenue = quantity_bought * price
+            profit = revenue - (quantity_bought*cost)
+            cost = quantity_bought * cost
 
             sales_history.append(               
                 {
-            "quantity_bought": quantity_bought,
-            "reveniue": reveniue,
-            "profit": profit
+                "quantity_bought": quantity_bought,
+                "revenue": revenue,
+                "profit": profit,
+                "cost": cost,
                 }
             )
             print("Logged Succcessfully")
             print(sales_history)
+def viewSummary(sales_history):
+    print("---------View Summary----------")
+    if not sales_history:
+        print("Sales history is empty")
+        return
+    else:
+        total_cost = 0.0
+        total_profit = 0.0
+        total_revenue = 0.0
 
+        for sales_record in sales_history:
+            total_revenue = total_revenue + sales_record["revenue"]
+            total_cost = total_cost + sales_record['cost']
+            total_profit = total_profit + sales_record["profit"]
+
+            print("Sales Summary!")
+            print(f"Revenue = {total_revenue}")
+            print(f"Cost = {total_cost}" )
+            print(f"Profit = {total_profit}")
+             
 
 #state flag
 isRunning = True
@@ -133,11 +159,11 @@ while isRunning:
     elif userChoice == 2:
         updeatInventory(inventory)          
     elif userChoice == 3:
-
        recordSales(inventory , sales_history)          
     elif userChoice == 4:
-          print("View Profit Coming Soon\n") 
+       viewSummary(sales_history)
     elif userChoice == 5:
+
         isRunning = False
     else:
         print("Please Enter 1-5\n")  
