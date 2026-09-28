@@ -1,3 +1,4 @@
+# https://www.youtube.com/watch?v=Zx7Bc_CCGj0
 # Ecommerce_Profit_and_Inventory_Calculator
 Ecommerce profit and inventory calculator project for CSCI 1511.
 
