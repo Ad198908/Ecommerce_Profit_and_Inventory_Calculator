@@ -1,7 +1,7 @@
 """
     Program name: Ecommerce_Profit_and_Inventory_Calculator
     Author: Adhanet Gebretensay
-    Purpose:
+    Purpose: A CLI application to calculate the profit ,cost ,and revenue of an ecommerice business.
     Date:Septempber 16/2026
 
     """
@@ -58,6 +58,12 @@ def viewInventory(inventory):
             print("-"*30)
 
 def updeatInventory(inventory):
+    """
+    Update product inventory.
+
+    Args:
+        inventory(dictionary):The dictionary containing product details.
+    """
     print("---------Update Invontory----------")
     Id = input("Please enter the product id ")        
     Id = Id.strip().upper()
@@ -82,6 +88,12 @@ def updeatInventory(inventory):
         print("Product added sucssesfully")
 
 def recordSales(inventory, sales_history):
+    """
+    Record product inventory, and sales history.
+    Args:
+        inventory (dictionary):Product inventory details.
+        sales_history (list):The list containing sales details.
+    """
 
     print("Record Sales \n")
     quantity_bought = int(input("How many items are bought? "))
@@ -121,6 +133,11 @@ def recordSales(inventory, sales_history):
             print("Logged Succcessfully")
             print(sales_history)
 def viewSummary(sales_history):
+    """
+    This function shows view product sales history.
+    Args:
+        sales_history (list): product sales detail.
+    """
     print("---------View Summary----------")
     if not sales_history:
         print("Sales history is empty")
