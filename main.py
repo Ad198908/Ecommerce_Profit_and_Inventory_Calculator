@@ -5,6 +5,27 @@
     Date:Septempber 16/2026
 
     """
+#class Inventory:
+    # self.sales_history = []
+
+    #def add_product():
+        # pass
+    #def view_inventory():
+        # pass
+    #def record_sale():
+        #pass
+    #get_summary():
+        #pass
+
+
+#class Product:
+    #def __init__(self, product_id, name, category)
+    #self.name = name
+    #self.category
+
+
+
+
 STORE_INFO = ("Admart", "USD")
 inventory ={
 
@@ -132,6 +153,7 @@ def recordSales(inventory, sales_history):
             )
             print("Logged Succcessfully")
             print(sales_history)
+
 def viewSummary(sales_history):
     """
     This function shows view product sales history.
