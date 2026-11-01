@@ -50,10 +50,11 @@ def main():
             stock = input("Please enter the product stock")
             new_product = Product(
                 name=name,
+                product_id=p_id,
                 category=category,
                 cost=cost,
                 price=price,
-                stock= stock
+                stock_quantity= stock
             )
             my_inventory.add_product(new_product)
             print("Product Added Successfully!")       

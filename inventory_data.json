@@ -1,0 +1,9 @@
+{
+    "AD-001": {
+        "name": "Vintage Wall Art",
+        "category": "Design",
+        "cost": "60",
+        "price": "90",
+        "stock_quantity": "15"
+    }
+}

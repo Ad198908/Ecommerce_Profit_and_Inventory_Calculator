@@ -53,15 +53,16 @@ class Inventory:
             print("Can not record sales")
             return False
 
-        if product_id not in self.product_inventory:
+        if product_id not in self.products_inventory:
             print("There is no product with that ID")
             return False
         else:
-            product = self.product_inventory[product_id]
-            stock = product.stock_quantity
-            price =  product.price
-            cost = product.cost
+            product = self.products_inventory[product_id]
+            stock = int(product.stock_quantity)
+            price =  float(product.price)
+            cost = float(product.cost)
             print(f"Selected {product.name}")
+
 
             if quantity_bought <= stock:
                 stock = stock - quantity_bought
