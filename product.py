@@ -12,8 +12,15 @@ class Product:
         self.category = category
         self.price = price
         self.cost = cost
-        self.stock_quantitty = stock_quantity
+        self.stock_quantity = stock_quantity
 
-    
+    def to_dict(self):
+        return{
+            "name":self.name,
+            "category":self.category,
+            "cost":self.cost,
+            "price":self.price,
+            "stock_quantity":self.stock_quantity
+        }
     
     

@@ -19,9 +19,6 @@ class Inventory:
 
     def view_inventory(self):
         """This function lets the store owner view the inventory
-
-        Args:
-            inventory (dictionary): Product inventory
         """
         print("Current Inventory")
         
