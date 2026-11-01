@@ -65,7 +65,8 @@ class Inventory:
 
 
             if quantity_bought <= stock:
-                stock = stock - quantity_bought
+                new_stock = stock - quantity_bought
+                product.stock_quantity = new_stock
                 revenue = quantity_bought * price
                 profit = revenue - (quantity_bought*cost)
                 cost = quantity_bought * cost
@@ -81,6 +82,8 @@ class Inventory:
                 print("Logged Succcessfully")
                 print(self.sales_history)
                 return True
+            else:
+                return False
 
     def get_Summary(self):
         """

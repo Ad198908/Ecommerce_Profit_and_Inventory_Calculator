@@ -17,7 +17,6 @@ def test_product_attributes():
     assert p.name == "Candle"
     assert p.stock_quantity == 20
 
-
 def test_record_sales():
     my_inventory = Inventory()
     p = Product("Candle", "AD-001",  "Home", 5.0, 10.0, 20)
@@ -26,3 +25,16 @@ def test_record_sales():
 
     assert success is True
     assert p.stock_quantity == 15
+
+def test_record_sales_insufficient_stock():
+    my_inventory = Inventory()
+    p = Product("Candle", "AD-001", "Home", 5.0, 10.0, 20)
+    my_inventory.add_product(p)
+
+    success = my_inventory.record_sales("AD-001", 25)
+    assert success == False
+    assert p.stock_quantity == 20
+
+
+
+    
