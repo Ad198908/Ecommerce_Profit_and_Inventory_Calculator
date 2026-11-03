@@ -19,7 +19,7 @@ def test_product_attributes():
 
 def test_record_sales():
     my_inventory = Inventory()
-    p = Product("Candle", "AD-001",  "Home", 5.0, 10.0, 20)
+    p = Product("Candle", "AD-001", "Home", 5.0, 10.0, 20)
     my_inventory.add_product(p)
     success = my_inventory.record_sales("AD-001", 5)
 

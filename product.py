@@ -1,7 +1,7 @@
 """
 Project name:Ecommerce_Profit_and_Inventory_calculator
 Author:Adhanet Gebretensay
-Purpouse:To define product class for individual items
+Purpouse:To define product class for individual items.
 Date:10/29/2026
 
 """
